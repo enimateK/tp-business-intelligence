@@ -1,0 +1,145 @@
+﻿2018-06-04 21:22:06      Exécution commencée.
+2018-06-04 21:22:06      QlikView Desktop Version      12.20.20200+2017-12-12 14:32:02+2a4b819
+2018-06-04 21:22:06      CPU Target                    x64
+2018-06-04 21:22:06      Operating System              Windows 10 Home  (64 bit edition)
+2018-06-04 21:22:06      Wow64 mode                    Not using Wow64
+2018-06-04 21:22:06      Language                      040c Français (France) French
+2018-06-04 21:22:06      Country                       33 France France
+2018-06-04 21:22:06      MDAC Version                  6.3.9600.16384
+2018-06-04 21:22:06      MDAC Full Install Version     6.3.9600.16384
+2018-06-04 21:22:06      PreferredCompression          2
+2018-06-04 21:22:06      EnableParallelReload          1
+2018-06-04 21:22:06      ParallelizeQvdLoads           1
+2018-06-04 21:22:06      AutoSaveAfterReload           0
+2018-06-04 21:22:06      BackupBeforeReload            0
+2018-06-04 21:22:06      EnableFlushLog                0
+2018-06-04 21:22:06      SaveInfoWhenSavingFile        0
+2018-06-04 21:22:06      UserLogfileCharset            65001
+2018-06-04 21:22:06      OdbcLoginTimeout              -1
+2018-06-04 21:22:06      OdbcConnectionTimeout         -1
+2018-06-04 21:22:06      LongestPossibleLine           1048576
+2018-06-04 21:22:06      MaxCoreMask                   -1
+2018-06-04 21:22:06      ScriptWantsDbWrite            false
+2018-06-04 21:22:06      ScriptWantsExe                false
+2018-06-04 21:22:06      LogFile CodePage Used:        65001
+2018-06-04 21:22:06      UseMemoryFillPattern          1
+2018-06-04 21:22:06      ScriptMode                    Legacy (gives greater system access) (aka qv11 mode)
+2018-06-04 21:22:06      SequentialThreadCount         21
+2018-06-04 21:22:06      NumberOfCores (effective)     4
+2018-06-04 21:22:06      ReloadCodebase                Bnf
+2018-06-04 21:22:06      Reload Executed By            DESKTOP-FLON53V\User
+2018-06-04 21:22:06      Process Executing             QlikView Desktop
+2018-06-04 21:22:06      Process ID                    3732
+2018-06-04 21:22:06 0002 ODBC CONNECT TO ***
+2018-06-04 21:22:09 0004 LOAD OrderID,
+2018-06-04 21:22:09 0005     CustomerID,
+2018-06-04 21:22:09 0006     EmployeeID,
+2018-06-04 21:22:09 0007     date(OrderDate) AS OrderDate,
+2018-06-04 21:22:09 0008     Day(OrderDate) AS Day,
+2018-06-04 21:22:09 0009     Week(OrderDate) AS Week,
+2018-06-04 21:22:09 0010     Month(OrderDate) AS Month,
+2018-06-04 21:22:09 0011     Year(OrderDate) AS Year,
+2018-06-04 21:22:09 0012     RequiredDate,
+2018-06-04 21:22:09 0013     ShippedDate,
+2018-06-04 21:22:09 0014     ShipVia,
+2018-06-04 21:22:09 0015     Freight,
+2018-06-04 21:22:09 0016     ShipName,
+2018-06-04 21:22:09 0017     ShipAddress,
+2018-06-04 21:22:09 0018     ShipCity,
+2018-06-04 21:22:09 0019     ShipRegion,
+2018-06-04 21:22:09 0020     ShipPostalCode,
+2018-06-04 21:22:09 0021     ShipCountry
+2018-06-04 21:22:09 0022 SQL SELECT *
+2018-06-04 21:22:09 0023 FROM `qv_northwind`.`dim_orders`
+2018-06-04 21:22:09 0024 ORDER BY OrderDate ASC
+2018-06-04 21:22:09      	18 champs trouvés: OrderID, CustomerID, EmployeeID, OrderDate, Day, Week, Month, Year, RequiredDate, ShippedDate, ShipVia, Freight, ShipName, ShipAddress, ShipCity, ShipRegion, ShipPostalCode, ShipCountry, 
+2018-06-04 21:22:09      830 lignes récupérées
+2018-06-04 21:22:09 0026 Let vMinDate = Peek('OrderDate', 0, 'dim_orders')
+2018-06-04 21:22:09 0027 Let vMaxDate = Peek('OrderDate', -1, 'dim_orders')
+2018-06-04 21:22:09 0028 TRACE *** vMinDate : 04/07/1996 / vMaxDate ! 06/05/1998
+2018-06-04 21:22:09 0028 *** vMinDate : 04/07/1996 / vMaxDate ! 06/05/1998
+2018-06-04 21:22:09 0029 
+2018-06-04 21:22:09 0030 Calendrier:
+2018-06-04 21:22:09 0031 LOAD 04/07/1996 + IterNo()-1 AS Num, 
+2018-06-04 21:22:09 0032 	DATE(35250 + IterNo() -1) AS TempDate
+2018-06-04 21:22:09 0033 	AutoGenerate(1)
+2018-06-04 21:22:09 0034 While 35250 + IterNo() -1 <= 35921
+2018-06-04 21:22:09      	2 champs trouvés: Num, TempDate, 
+2018-06-04 21:22:09      672 lignes récupérées
+2018-06-04 21:22:09 0036 Temps:
+2018-06-04 21:22:09 0037 LOAD TempDate AS OrderDate,
+2018-06-04 21:22:09 0038 	Day(TempDate) AS JOUR, 
+2018-06-04 21:22:09 0039 	Month(TempDate) AS MOIS,
+2018-06-04 21:22:09 0040 	Ceil(Month(TempDate)/3) AS TRIMESTRE,
+2018-06-04 21:22:09 0041 	Year(TempDate) AS ANNEE
+2018-06-04 21:22:09 0042 Resident Calendrier
+2018-06-04 21:22:09 0043 Order By TempDate ASC
+2018-06-04 21:22:09      	5 champs trouvés: OrderDate, JOUR, MOIS, TRIMESTRE, ANNEE, 
+2018-06-04 21:22:09      672 lignes récupérées
+2018-06-04 21:22:09 0045 DROP TABLE Calendrier
+2018-06-04 21:22:09 0047 LOAD CategoryID,
+2018-06-04 21:22:09 0048     CategoryName,
+2018-06-04 21:22:09 0049     Description
+2018-06-04 21:22:09 0050 SQL SELECT *
+2018-06-04 21:22:09 0051 FROM `qv_northwind`.`dim_categories`
+2018-06-04 21:22:09      	3 champs trouvés: CategoryID, CategoryName, Description, 
+2018-06-04 21:22:09      8 lignes récupérées
+2018-06-04 21:22:09 0053 LOAD CustomerID,
+2018-06-04 21:22:09 0054     CompanyName,
+2018-06-04 21:22:09 0055     ContactName,
+2018-06-04 21:22:09 0056     ContactTitle,
+2018-06-04 21:22:09 0057     Address,
+2018-06-04 21:22:09 0058     City,
+2018-06-04 21:22:09 0059     Region,
+2018-06-04 21:22:09 0060     PostalCode,
+2018-06-04 21:22:09 0061     Country,
+2018-06-04 21:22:09 0062     Phone,
+2018-06-04 21:22:09 0063     Fax
+2018-06-04 21:22:09 0064 SQL SELECT *
+2018-06-04 21:22:09 0065 FROM `qv_northwind`.`dim_customers`
+2018-06-04 21:22:10      	11 champs trouvés: CustomerID, CompanyName, ContactName, ContactTitle, Address, City, Region, PostalCode, Country, Phone, Fax, 
+2018-06-04 21:22:10      91 lignes récupérées
+2018-06-04 21:22:10 0067 LOAD EmployeeID,
+2018-06-04 21:22:10 0068     LastName,
+2018-06-04 21:22:10 0069     FirstName,
+2018-06-04 21:22:10 0070     Title,
+2018-06-04 21:22:10 0071     TitleOfCourtesy,
+2018-06-04 21:22:10 0072     BirthDate,
+2018-06-04 21:22:10 0073 
+2018-06-04 21:22:10 0074 
+2018-06-04 21:22:10 0075 
+2018-06-04 21:22:10 0076 
+2018-06-04 21:22:10 0077 
+2018-06-04 21:22:10 0078 
+2018-06-04 21:22:10 0079 
+2018-06-04 21:22:10 0080     age,
+2018-06-04 21:22:10 0081     `tranche_age`
+2018-06-04 21:22:10 0082 SQL SELECT *
+2018-06-04 21:22:10 0083 FROM `qv_northwind`.`dim_employees`
+2018-06-04 21:22:10      	8 champs trouvés: EmployeeID, LastName, FirstName, Title, TitleOfCourtesy, BirthDate, age, tranche_age, 
+2018-06-04 21:22:10      9 lignes récupérées
+2018-06-04 21:22:10 0085 LOAD ProductID,
+2018-06-04 21:22:10 0086     ProductName,
+2018-06-04 21:22:10 0087     SupplierID,
+2018-06-04 21:22:10 0088     CategoryID,
+2018-06-04 21:22:10 0089     QuantityPerUnit,
+2018-06-04 21:22:10 0090 
+2018-06-04 21:22:10 0091     UnitsInStock,
+2018-06-04 21:22:10 0092     UnitsOnOrder,
+2018-06-04 21:22:10 0093     ReorderLevel,
+2018-06-04 21:22:10 0094     Discontinued
+2018-06-04 21:22:10 0095 SQL SELECT *
+2018-06-04 21:22:10 0096 FROM `qv_northwind`.`dim_products`
+2018-06-04 21:22:10      	9 champs trouvés: ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued, 
+2018-06-04 21:22:10      77 lignes récupérées
+2018-06-04 21:22:10 0098 LOAD OrderID,
+2018-06-04 21:22:10 0099     ProductID,
+2018-06-04 21:22:10 0100     UnitPrice,
+2018-06-04 21:22:10 0101     Quantity,
+2018-06-04 21:22:10 0102     Num(Discount, '##.00') AS Discount,
+2018-06-04 21:22:10 0103     UnitPrice * Quantity AS Total
+2018-06-04 21:22:10 0104 SQL SELECT *
+2018-06-04 21:22:10 0105 FROM `qv_northwind`.`fact_orders_detail`
+2018-06-04 21:22:10      	6 champs trouvés: OrderID, ProductID, UnitPrice, Quantity, Discount, Total, 
+2018-06-04 21:22:10      2 155 lignes récupérées
+2018-06-04 21:22:11      Exécution terminée.
